@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/minosx31/timezones-clock.git/static/css/main.60db87b5.css",
-    "main.js": "/minosx31/timezones-clock.git/static/js/main.b2628e9f.js",
-    "index.html": "/minosx31/timezones-clock.git/index.html",
-    "main.60db87b5.css.map": "/minosx31/timezones-clock.git/static/css/main.60db87b5.css.map",
-    "main.b2628e9f.js.map": "/minosx31/timezones-clock.git/static/js/main.b2628e9f.js.map"
+    "main.css": "/timezones-clock/static/css/main.60db87b5.css",
+    "main.js": "/timezones-clock/static/js/main.b2628e9f.js",
+    "index.html": "/timezones-clock/index.html",
+    "main.60db87b5.css.map": "/timezones-clock/static/css/main.60db87b5.css.map",
+    "main.b2628e9f.js.map": "/timezones-clock/static/js/main.b2628e9f.js.map"
   },
   "entrypoints": [
     "static/css/main.60db87b5.css",
