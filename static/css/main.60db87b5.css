@@ -1,2 +1,0 @@
-*{box-sizing:border-box;margin:0;padding:0}body{background:#000}.app{align-items:center;color:#fff;display:flex;flex-direction:row;flex-wrap:wrap;height:100vh;justify-content:space-evenly}.app h1{display:flex;flex-direction:column;margin:1rem;padding:1rem}#time{font-size:5rem}#date,#time{display:flex;justify-content:center;margin:.5rem 0}#date{font-size:1.5rem}.app h1 p{display:block;font-size:1.25rem;margin-bottom:1rem;text-align:center}
-/*# sourceMappingURL=main.60db87b5.css.map*/
