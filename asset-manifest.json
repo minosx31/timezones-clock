@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/timezones-clock/static/css/main.ae548fbb.css",
-    "main.js": "/timezones-clock/static/js/main.f956590f.js",
-    "index.html": "/timezones-clock/index.html",
-    "main.ae548fbb.css.map": "/timezones-clock/static/css/main.ae548fbb.css.map",
-    "main.f956590f.js.map": "/timezones-clock/static/js/main.f956590f.js.map"
+    "main.css": "/static/css/main.4e870b9a.css",
+    "main.js": "/static/js/main.5ff15a97.js",
+    "index.html": "/index.html",
+    "main.4e870b9a.css.map": "/static/css/main.4e870b9a.css.map",
+    "main.5ff15a97.js.map": "/static/js/main.5ff15a97.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae548fbb.css",
-    "static/js/main.f956590f.js"
+    "static/css/main.4e870b9a.css",
+    "static/js/main.5ff15a97.js"
   ]
 }
