@@ -1,54 +1,55 @@
-import React from 'react';
+import { Box, VStack } from '@chakra-ui/react';
+import React, { useState, useEffect } from 'react';
 // Link to timezone: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-class Time extends React.Component {
+const Time = (props) => {
+    const [ time, setTime ] = useState(new Date());
 
-    constructor(props) {
-        super(props);
-        this.state = {date: new Date()};
-        this.goFullScreen = this.goFullScreen.bind(this);
-        this.timeId = `time-${this.props.id}`;
-    }
+    useEffect( () => {
+        setInterval( () => setTime(new Date()), 1000);
+    }, []);
 
-    componentDidMount() {
-        this.timerID = setInterval( () => this.tick(), 1000);
-    }
+    let wakelockSentinel = null
 
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
-
-    tick() {
-        this.setState({
-            date: new Date()
-        });
-    }
-
-    render() {
-        return (
-            <div className="time" id={this.timeId} onClick={this.goFullScreen}>
-                <h1 id="time_header">
-                    <p>{this.props.description}</p>
-                    <span id="clock">{this.state.date.toLocaleTimeString('en-GB', {hour:'numeric', minute:'numeric', second: 'numeric', timeZone:`${this.props.timezone}`})}</span>
-                    <span id="date">{this.state.date.toLocaleDateString('en-GB', {year:'numeric', month:'long', day:'numeric', weekday:'long', timeZone:`${this.props.timezone}`})}</span>
-                </h1>
-            </div>
-        );
-    }
-
-    goFullScreen() {
-        let elem = document.querySelector(`#${this.timeId}`);
-        console.log(`${this.timeId}`);
+    const goFullScreen = async () => {
+        let timeElem = document.querySelector(`#${props.id}`);
+        
         if (!document.fullscreenElement) {
-            elem.requestFullscreen().catch((err) => {
-              alert(
-                `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`
-              );
+            await timeElem.requestFullscreen().catch((err) => {
+              console.error(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
             });
+
+            if ('wakeLock' in navigator) {
+                wakelockSentinel = navigator.wakeLock.request('screen')
+                console.log("WakeLock is active" + wakelockSentinel)
+            }
           } else {
             document.exitFullscreen();
+            if ('wakeLock' in navigator) {
+                if (wakelockSentinel != null) {
+                    await wakelockSentinel.release().then(() => {
+                        wakelockSentinel = null
+                    }).catch((err) => {
+                        console.error(`${err.message} (${err.name})`)
+                    });
+                }
+            }
           }
     }
+
+    return (
+        <VStack m={4} className="time" id={props.id} onClick={goFullScreen}>
+            <Box fontSize="1.25rem">
+                {props.description}
+            </Box>
+            <Box m={2} fontSize="6rem" id="clock">
+                {time.toLocaleTimeString('en-GB', {hour:'numeric', minute:'numeric', second: 'numeric', timeZone:`${props.timezone}`})}
+            </Box>
+            <Box fontSize="1.25rem">
+                {time.toLocaleDateString('en-GB', {year:'numeric', month:'long', day:'numeric', weekday:'long', timeZone:`${props.timezone}`})}
+            </Box>
+        </VStack>
+    );
 }
 
 export default Time;

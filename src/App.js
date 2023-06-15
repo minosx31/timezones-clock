@@ -1,38 +1,24 @@
+import { Link as ReachLink } from 'react-router-dom';
+import { Button, Link, Flex, ButtonGroup } from '@chakra-ui/react'
 import Time from './Time.js';
 import ToggleDark from './ToggleDark.js';
 
 function App() {
-  /*
-  const button_dark = document.querySelector("#btn-dark");
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-  const currentTheme = localStorage.getItem("theme");
-  if (currentTheme == "dark") {
-    document.body.classList.toggle("dark-mode");
-  } else if (currentTheme == "light") {
-    document.body.classList.toggle("light-mode");
-  }
-
-  btn.addEventListener("click", function() {
-    if (prefersDarkScheme.matches) {
-      document.body.classList.toggle("light-mode");
-      var theme = document.body.classList.contains("light-mode") ? "light" : "dark";
-    } else {
-      document.body.classList.toggle("dark-mode");
-      var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
-    }
-    localStorage.setItem("theme", theme);
-  });
-  */
 
   return (
-    <div className="app">
+    <>
+      <Flex p={2} justify="right" align="center">
+        <ButtonGroup alignItems="center">
+          <Link as={ReachLink} to="/pomodoro">
+            <Button>Pomodoro</Button>
+          </Link>
 
-      <div className="top_row">
-        <ToggleDark />
-      </div>
+          <ToggleDark />
 
-      <div className="timezones">
+        </ButtonGroup>
+      </Flex>
 
+      <Flex align="center" justify="center" wrap="wrap" height="90vh">
         <Time id="time1" timezone="Singapore" description="Singapore (Local)" />
 
         <Time id="time2" timezone="Australia/Sydney" description="Australia (Sydney)" />
@@ -40,10 +26,8 @@ function App() {
         <Time id="time3" timezone="America/New_York" description="New York (ET)" />
 
         <Time id="time4" timezone="Europe/London" description="London (GMT/BST)" />
-      </div>
-      
-
-    </div>
+      </Flex>
+    </>
   );
 }
 
