@@ -9,10 +9,10 @@ const Timer = (props) => {
         STOPPED: "Stopped"
     };
     
-    const {initialMinutes=0, initialSeconds=0} = props;
-    const [minutes, setMinutes] = useState(initialMinutes) 
-    const [seconds, setSeconds] = useState(initialSeconds) 
-    const [status, setStatus] = useState(STATUS.STOPPED)
+    const { initialMinutes=0, initialSeconds=0 } = props;
+    const [minutes, setMinutes] = useState(initialMinutes);
+    const [seconds, setSeconds] = useState(initialSeconds);
+    const [status, setStatus] = useState(STATUS.STOPPED);
     const {setFinishedTimer} = useContext(timerProgress);
     
     const handleStart = () => {

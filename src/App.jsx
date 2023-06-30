@@ -1,7 +1,7 @@
 import { Link as ReachLink } from 'react-router-dom';
 import { Button, Link, Flex, ButtonGroup } from '@chakra-ui/react'
-import Time from './Time.js';
-import ToggleDark from './ToggleDark.js';
+import Time from './Time.jsx';
+import ToggleDark from './ToggleDark.jsx';
 
 function App() {
 

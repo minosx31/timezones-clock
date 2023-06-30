@@ -37,9 +37,9 @@ const Settings = () => {
                                 <NumberInput onChange={(e) => setCurrentPomodoroMinutes(e)} 
                                 clampValueOnBlur={true} 
                                 step={1} 
-                                defaultValue={currentPomodoroMinutes} 
-                                min={1} 
-                                max={60} 
+                                defaultValue={currentPomodoroMinutes}
+                                min={0}
+                                max={60}
                                 allowMouseWheel
                                 >
                                     <NumberInputField />
@@ -57,7 +57,7 @@ const Settings = () => {
                                 clampValueOnBlur={true} 
                                 tep={1} 
                                 defaultValue={currentShortBreakMinutes} 
-                                min={1} 
+                                min={0} 
                                 max={15} 
                                 allowMouseWheel
                                 >
@@ -75,7 +75,7 @@ const Settings = () => {
                                 clampValueOnBlur={true} 
                                 step={1} 
                                 defaultValue={currentLongBreakMinutes} 
-                                min={5} 
+                                min={0} 
                                 max={30} 
                                 allowMouseWheel
                                 >
